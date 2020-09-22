@@ -1,4 +1,4 @@
-# CapstoneProjectTemplate /* Replace this line with the title of your project */
+# Betterflye Content Management System
 
 ## **Summary**
 
@@ -6,14 +6,15 @@ Put a very high-level summary of the project.
 
 ## **Team Members**
 
-- Joe Black
-- Joe Pesci
-- Joe Dalton
+- Sara Bailey
+- Jake Dibble
+- Daniel Gonzalez 
+- Daniel Spencer
 
 ## **Client Partner Information**
 
 ### *Company:*
-WHATEVER COMPANY or CORRESPONDENCE
+Betterflye
 
 ### *People:*
 - Jane Fonda
