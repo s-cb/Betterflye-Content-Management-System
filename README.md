@@ -17,8 +17,7 @@ The Betterflye Content Management system will filter out inappropriate user-adde
 Betterflye
 
 ### *People:*
-- Jane Fonda
-- Jane Lynch
+- Virginie McNamar
 
 ## **Links**
 
