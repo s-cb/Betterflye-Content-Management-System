@@ -2,7 +2,7 @@
 
 ## **Summary**
 
-Put a very high-level summary of the project.
+The Betterflye Content Management system will filter out inappropriate user-added content from the Betterflye app.
 
 ## **Team Members**
 
