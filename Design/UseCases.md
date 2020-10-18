@@ -1,13 +1,17 @@
 ## Actors
 - Users
+  - These are the people that use the platform. They are able to post photos and text. They are also able to flag other users' posts if they think it is
+  inappropriate. Users can also appeal their flagged post to an admin so that it can be unblocked.
 - Admins
+  - These are the people that monitor the platform. They can do everything that a normal user can do and they can also accept or reject user appeals. Admins are also notified of any appeals and also notified of blocked posts that are caught by the filter.
 - Filter System
+  - This is the content management service that monitors the user's input for any inappropriate words or photos before it is posted. Admins will be notified of any blocked posts and will have the option to revert the block.
 
 ## Use Cases 
 - UC1: Block inappropriate content
   - Actor: Filter system
   - meets BR1
-This is an essential function of the content service. It ensures that the client's requirement to keep the service clean is met. Content should be blocked before it is posted to provide a good user experience.
+  - This is an essential function of the content service. It ensures that the client's requirement to keep the service clean is met. Content should be blocked before it is posted to provide a good user experience.
    - Main flow:
         1. The actor accepts user input.    
         2. The actor analyzes the input.
