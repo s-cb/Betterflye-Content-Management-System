@@ -40,14 +40,14 @@
   - Priority: High
   - BR5
 
--NR2: The content filter shall not cause lag for users.
+- NR2: The content filter shall not cause lag for users.
   - Priority: High
   - BR1
 
--NR3: Records of users who have uploaded blocked content shall be stored. 
+- NR3: Records of users who have uploaded blocked content shall be stored. 
   - Priority: Low
   - BR3, BR4
 
--NR4: The software shall be written using PHP.
+- NR4: The software shall be written using PHP.
   - Priority: High
   - BR5
