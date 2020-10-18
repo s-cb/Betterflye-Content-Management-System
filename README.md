@@ -25,7 +25,7 @@ Betterflye
 - [Team meeting minutes](MeetingMinutes/Team)
 - [Mentor meeting minutes](MeetingMinutes/Mentor)
 - [Client partner meeting minutes](MeetingMinutes/ClientPartner)
-- [Project Management Tool](projects/1)
+- [Project Management Tool](https://github.com/s-cb/Betterflye-Content-Management-System/projects/1)
 
 ## **Code Repositories**
 
