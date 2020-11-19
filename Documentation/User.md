@@ -1,0 +1,2 @@
+- User can post comments without any profanity in them.
+  - User notified by a pop-up if their comment contains profanity
