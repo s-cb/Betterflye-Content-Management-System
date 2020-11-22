@@ -53,5 +53,4 @@
 
 *   Simply browse to <a href="http://localhost/Betterflye" target="_blank">http://localhost/Betterflye</a>
 *   Create user.
-*   Write a status post on the homepage.
-*   To test the filter, write a comment on the status post and see if it is approved or rejected based on the content.
+*   To test the filter, create a status update or comment and see if it is blocked or approved based on the content. 
