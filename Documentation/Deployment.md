@@ -1,6 +1,6 @@
 ### Server:
 
-System has been designed to be server independent, will work on any server operating system – linux, windows, etc. This is because the team does not know the target server system. All we know is AWS
+System has been designed to be server independent, will work on any server operating system – linux, windows, etc.
 
 ### File structure:
 
@@ -16,8 +16,8 @@ To stop it from running, the web server should be disabled (linux Debian and der
 If issues arise, the first step should be to turn on error reporting in PHP’s configuration file or the particular page with issues, following PHP official documentation  - https://www.php.net/manual/en/function.error-reporting.php
 The system is built so that any errors, in any other part of the system, will be reported through PHP.
 
-###Our deployment for public server
-####Requirements -- Linux server
+### Our deployment for public server
+#### Requirements -- Linux server
 
 This guide uses Debian-based commands, replace them as needed for other distributions.
 It is advised to run all commands from an elevated shell -- as root or with sudo
@@ -35,7 +35,7 @@ It is advised to run all commands from an elevated shell -- as root or with sudo
 * set the DocumentRoot line to say -> "DocumentRoot /var/www/html/betterflye"
 * save the file and exit -> ctrl o + ctrl x
 
-###set up the database:
+### Set up the database:
 
 * run the command "mysql_secure_installation"
 * answer the questions to match environment configurations
