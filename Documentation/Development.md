@@ -53,4 +53,11 @@
 
 *   Simply browse to <a href="http://localhost/Betterflye" target="_blank">http://localhost/Betterflye</a>
 *   Create user.
-*   To test the filter, create a status update or comment and see if it is blocked or approved based on the content. 
+*   To test the filter:
+    *  Create a status update on the profile page and see if it is blocked based on content. 
+    *  Try to create an organization or initiative with profanity in the title, description, tags, or other user input areas.
+* To test admin flag messages:
+    *  Login to the betterflyeAdmin account:
+       <p>user: betterflyeAdmin</p>
+       <p>password: password</p>
+    * On the dashboard, you can view the block messages from other users you have created. 
