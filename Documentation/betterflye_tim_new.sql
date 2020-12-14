@@ -103,7 +103,7 @@ CREATE TABLE `badgeImage` (
 
 DROP TABLE IF EXISTS `badgeStore`;
 CREATE TABLE `badgeStore` (
-                            `badgeID` int(11) NOT NULL
+    `badgeID` int(11) NOT NULL
 );
 
 DROP TABLE IF EXISTS `badges`;
@@ -214,11 +214,11 @@ CREATE TABLE `hourGoals` (
 
 DROP TABLE IF EXISTS `initImpactReview`;
 CREATE TABLE `initImpactReview` (
-                                `reviewID` int(11) NOT NULL AUTO_INCREMENT,
-                                `userID` int not null,
-                                `impactID` int(11) NOT NULL,
-                                `impactReview` text NOT NULL,
-                                PRIMARY KEY (`reviewID`)
+                                    `reviewID` int(11) NOT NULL AUTO_INCREMENT,
+                                    `userID` int not null,
+                                    `impactID` int(11) NOT NULL,
+                                    `impactReview` text NOT NULL,
+                                    PRIMARY KEY (`reviewID`)
 );
 
 DROP TABLE IF EXISTS `influence`;
@@ -487,6 +487,7 @@ CREATE TABLE `posts` (
                          `postImage` varchar(255) NOT NULL,
                          `postDate` datetime NOT NULL DEFAULT current_timestamp(),
                          `editedDate` datetime NOT NULL,
+                         `blocked` tinyint(1) NOT NULL DEFAULT 1,
                          PRIMARY KEY (`postID`)
 );
 
@@ -716,118 +717,118 @@ CREATE TABLE `welcomeTasks` (
 -- new tables 7/8/2020
 
 CREATE TABLE `orgImpact` (
-                                `impactID` int not null auto_increment,
-                                `orgID` int not null,
-                                `impactName` varchar(255) not null,
-                                PRIMARY KEY (`impactID`)
+                             `impactID` int not null auto_increment,
+                             `orgID` int not null,
+                             `impactName` varchar(255) not null,
+                             PRIMARY KEY (`impactID`)
 );
 
 CREATE TABLE `orgImpactReview` (
-                                `reviewID` int(11) NOT NULL AUTO_INCREMENT,
-                                `userID` int not null,
-                                `impactID` int(11) NOT NULL,
-                                `impactReview` text NOT NULL,
-                                PRIMARY KEY (`reviewID`)
+                                   `reviewID` int(11) NOT NULL AUTO_INCREMENT,
+                                   `userID` int not null,
+                                   `impactID` int(11) NOT NULL,
+                                   `impactReview` text NOT NULL,
+                                   PRIMARY KEY (`reviewID`)
 );
 
 CREATE TABLE `orgImpactRating` (
-                                `ratingID` int(11) NOT NULL AUTO_INCREMENT,
-                                `userID` int not null,
-                                `impactID` int(11) NOT NULL,
-                                `rating` int NOT NULL,
-                                PRIMARY KEY (`ratingID`)
+                                   `ratingID` int(11) NOT NULL AUTO_INCREMENT,
+                                   `userID` int not null,
+                                   `impactID` int(11) NOT NULL,
+                                   `rating` int NOT NULL,
+                                   PRIMARY KEY (`ratingID`)
 );
 
 CREATE TABLE `initImpactRating` (
-                                `ratingID` int(11) NOT NULL AUTO_INCREMENT,
-                                `userID` int not null,
-                                `impactID` int(11) NOT NULL,
-                                `rating` int NOT NULL,
-                                PRIMARY KEY (`ratingID`)
+                                    `ratingID` int(11) NOT NULL AUTO_INCREMENT,
+                                    `userID` int not null,
+                                    `impactID` int(11) NOT NULL,
+                                    `rating` int NOT NULL,
+                                    PRIMARY KEY (`ratingID`)
 );
 
 CREATE TABLE `orgType` (
-                                `orgID` int NOT NULL,
-                                `orgType` varchar(255) not null
+                           `orgID` int NOT NULL,
+                           `orgType` varchar(255) not null
 );
 
 CREATE TABLE `userEmail` (
-                                `userID` int not null,
-                                `email` varchar(255) not null
+                             `userID` int not null,
+                             `email` varchar(255) not null
 );
 -- New Table 7/11/2020
 
 CREATE TABLE initBookmark(
-                                `userID` int not null,
-                                `initID` int not null
+                             `userID` int not null,
+                             `initID` int not null
 );
 -- New Table 7/12/2020
 
 CREATE TABLE `initPrimaryOrg` (
-                                 `initID` int(11) NOT NULL,
-                                 `orgID` int(11) NOT NULL
+                                  `initID` int(11) NOT NULL,
+                                  `orgID` int(11) NOT NULL
 );
 
 CREATE TABLE `orgNotifications` (
-                                 `notificationID` int(11) NOT NULL AUTO_INCREMENT,
-                                 `eventType` text,
-                                 `creationDate` datetime DEFAULT current_timestamp(),
-                                 `content` text,
-                                 `triggerID` int(11) NOT NULL,
-                                 `receiverID` int(11) NOT NULL,
-                                 `isRead` int(11) DEFAULT 0,
-                                 `archived` int(11) DEFAULT 0,
-                                 PRIMARY KEY (`notificationID`)
+                                    `notificationID` int(11) NOT NULL AUTO_INCREMENT,
+                                    `eventType` text,
+                                    `creationDate` datetime DEFAULT current_timestamp(),
+                                    `content` text,
+                                    `triggerID` int(11) NOT NULL,
+                                    `receiverID` int(11) NOT NULL,
+                                    `isRead` int(11) DEFAULT 0,
+                                    `archived` int(11) DEFAULT 0,
+                                    PRIMARY KEY (`notificationID`)
 
 );
 
 -- New Tables 7/20/2020
 
 CREATE TABLE `impactCategory` (
-                                 `categoryName` varchar(255) not null,
-                                 `categoryID` int not null auto_increment,
-                                 `type` varchar(255) default 'betterflye',
-                                 primary key (`categoryID`)
+                                  `categoryName` varchar(255) not null,
+                                  `categoryID` int not null auto_increment,
+                                  `type` varchar(255) default 'betterflye',
+                                  primary key (`categoryID`)
 );
 
 CREATE TABLE `impactXP` (
-                                 `categoryID` int not null,
-                                 `userID` int not null,
-                                 `xp` int not null default 0
+                            `categoryID` int not null,
+                            `userID` int not null,
+                            `xp` int not null default 0
 );
 
 CREATE TABLE `impactLevel` (
-                                 `categoryID` int not null,
-                                 `userID` int not null,
-                                 `level` int not null default 0
+                               `categoryID` int not null,
+                               `userID` int not null,
+                               `level` int not null default 0
 );
 
 CREATE TABLE `initImpactCategory` (
-                                 `categoryID` int not null,
-                                 `impactID` int not null
+                                      `categoryID` int not null,
+                                      `impactID` int not null
 );
 
 CREATE TABLE `orgImpactCategory` (
-                                 `categoryID` int not null,
-                                 `impactID` int not null
+                                     `categoryID` int not null,
+                                     `impactID` int not null
 );
 
 -- new table 7/31/2020
 
 CREATE TABLE `pinnedPosts` (
-                                `postID` int not null
+    `postID` int not null
 );
 
 -- new table 8/1/2020
 
 CREATE TABLE `initMilestones` (
-                                `initID` int not null,
-                                `userID` int not null,
-                                `postContent` text,
-                                `type` varchar(255),
-                                `milestone`  int not null,
-                                `milestoneID` int not null auto_increment,
-                                primary key (`milestoneID`)
+                                  `initID` int not null,
+                                  `userID` int not null,
+                                  `postContent` text,
+                                  `type` varchar(255),
+                                  `milestone`  int not null,
+                                  `milestoneID` int not null auto_increment,
+                                  primary key (`milestoneID`)
 );
 
 -- new table 7/31/2020
@@ -839,186 +840,196 @@ CREATE TABLE `milestonePosts` (
 -- new table 8/7/2020
 
 CREATE TABLE `flags`(
-        `flagID` int primary key auto_increment,
-        `flagType` varchar(255) not null,
-        `userID` int not null,
-        `resolved` boolean default false,
-        `resolution` varchar(255) default null,
-        `target` int not null,
-        `flagDate` datetime default CURRENT_TIMESTAMP()
+                        `flagID` int primary key auto_increment,
+                        `flagType` varchar(255) not null,
+                        `userID` int not null,
+                        `resolved` boolean default false,
+                        `resolution` varchar(255) default null,
+                        `target` int not null,
+                        `flagDate` datetime default CURRENT_TIMESTAMP()
 );
 
 -- new tables 8/11/2020
 
 CREATE TABLE `emailConfirm` (
-        `emailHash` varchar(255) not null unique,
-        `emailAddress` varchar(255) not null unique
+                                `emailHash` varchar(255) not null unique,
+                                `emailAddress` varchar(255) not null unique
 );
 
 CREATE TABLE `preRegisterEmailAppre`(
-        `sentNotifID` int not null,
-        `emailAddress` varchar(255) not null
+                                        `sentNotifID` int not null,
+                                        `emailAddress` varchar(255) not null
 );
 
 CREATE TABLE `paymentVerification` (
-    `token` varchar(255) not null unique,
-    `badgeName` varchar(255) not null,
-    `sendFromID` int not null,
-    `sendToUserName` varchar(255) not null,
-    `points` int not null
+                                       `token` varchar(255) not null unique,
+                                       `badgeName` varchar(255) not null,
+                                       `sendFromID` int not null,
+                                       `sendToUserName` varchar(255) not null,
+                                       `points` int not null
 );
 
 CREATE TABLE `stripeConnectOrgData` (
-    `orgID` int not null,
-    `stateToken` varchar(255) not null unique,
-    `accountID` varchar(255) default ''
+                                        `orgID` int not null,
+                                        `stateToken` varchar(255) not null unique,
+                                        `accountID` varchar(255) default ''
 );
 
 CREATE TABLE `apprePaymentRecord`(
-    `userID` int not null,
-    `orgID` int not null
+                                     `userID` int not null,
+                                     `orgID` int not null
 );
 
 CREATE TABLE `donationVerification` (
-     `token` varchar(255) not null unique,
-     `userID` int not null,
-     `initID` int not null,
-     `amount` decimal(10,2) not null
+                                        `token` varchar(255) not null unique,
+                                        `userID` int not null,
+                                        `initID` int not null,
+                                        `amount` decimal(10,2) not null
 );
 
 CREATE TABLE `appreStorage` (
-    `appre` text not null,
-    `stateToken` varchar(255) not null unique
+                                `appre` text not null,
+                                `stateToken` varchar(255) not null unique
 );
 
 -- shift system tables
 
 CREATE TABLE `initShifts`(
-    `shiftID` int not null auto_increment,
-    `initID` int not null,
-    `startTime` datetime not null,
-    `endTime` datetime not null,
-    `roleID` int,
-    `limit` int default 1,
-    primary key (`shiftID`)
+                             `shiftID` int not null auto_increment,
+                             `initID` int not null,
+                             `startTime` datetime not null,
+                             `endTime` datetime not null,
+                             `roleID` int,
+                             `limit` int default 1,
+                             primary key (`shiftID`)
 );
 CREATE TABLE `initRoles`(
-    `roleID` int not null auto_increment,
-    `initID` int not null,
-    `name` varchar(255) not null,
-    `description` text,
-    `limit` int default 1,
-    primary key (`roleID`)
+                            `roleID` int not null auto_increment,
+                            `initID` int not null,
+                            `name` varchar(255) not null,
+                            `description` text,
+                            `limit` int default 1,
+                            primary key (`roleID`)
 );
 -- shifts are assigned here and can have the optional role assignment too
 CREATE TABLE `userVolShift`(
-    `userID` int not null,
-    `shiftID` int not null
+                               `userID` int not null,
+                               `shiftID` int not null
 );
 -- roles are assigned here if roles are used and shifts are not
 CREATE TABLE `userVolRole`(
-    `userID` int not null,
-    `roleID` int not null
+                              `userID` int not null,
+                              `roleID` int not null
 );
 
 -- new tables 8/25/2020
 
 CREATE TABLE `validationByEmail`(
-    `token` varchar(255) not null unique,
-    `contribID` int not null
+                                    `token` varchar(255) not null unique,
+                                    `contribID` int not null
 );
 
 -- NEW NOTIFICATION SYSTEM
 
 CREATE TABLE `notifications` (
-    `notifID` int not null auto_increment primary key,
-    `notifType` varchar(255) not null,
-    `eventType` varchar(255) not null,
-    `eventTrigger` int not null,
-    `notifDate` datetime default NOW(),
-    `content` text not null,
-    `images` varchar(255), -- a.png;b.png
-    `badges` varchar(255), -- 0;10;203; -- maybe 0,1;20,2
-    `receiver` int not null,
-    `isRead` int not null default 0,
-    `isArchived` int not null default 0
+                                 `notifID` int not null auto_increment primary key,
+                                 `notifType` varchar(255) not null,
+                                 `eventType` varchar(255) not null,
+                                 `eventTrigger` int not null,
+                                 `notifDate` datetime default NOW(),
+                                 `content` text not null,
+                                 `images` varchar(255), -- a.png;b.png
+                                 `badges` varchar(255), -- 0;10;203; -- maybe 0,1;20,2
+                                 `receiver` int not null,
+                                 `isRead` int not null default 0,
+                                 `isArchived` int not null default 0
 );
 
 CREATE TABLE `userImpactPoints`(
-    `userID` int not null,
-    `points` int default 0
+                                   `userID` int not null,
+                                   `points` int default 0
 );
 
 CREATE TABLE `impactPointVerify`(
-    `userID` int not null,
-    `points` int not null,
-    `token` varchar(255) not null
+                                    `userID` int not null,
+                                    `points` int not null,
+                                    `token` varchar(255) not null
 );
 
 -- new tables 9/18/2020
 
 CREATE TABLE `thanksCounter` (
-    `notifID` int not null,
-    `thanks` int default 1
+                                 `notifID` int not null,
+                                 `thanks` int default 1
 );
 
 -- new tables 10/3/2020
 
 CREATE TABLE `boostImpact` (
-    `userID` int not null,
-    `postID` int not null
+                               `userID` int not null,
+                               `postID` int not null
 );
 
 -- new tables 10/20/20
 create table `orgImpactXP` (
-    `orgID` int not null,
-    `categoryID` int not null,
-    `xp` int not null default 0
+                               `orgID` int not null,
+                               `categoryID` int not null,
+                               `xp` int not null default 0
 );
 create table `orgImpactLevel` (
-    `orgID` int not null,
-    `categoryID` int not null,
-    `level` int not null default 0
+                                  `orgID` int not null,
+                                  `categoryID` int not null,
+                                  `level` int not null default 0
 );
 
 -- API TABLES 10/22/20
 
 create table `apiKey` (
-    `apiID` int not null auto_increment,
-    `secretKey` varchar(255) not null,
-    `publicKey` varchar(255) not null,
-    primary key (apiID)
+                          `apiID` int not null auto_increment,
+                          `secretKey` varchar(255) not null,
+                          `publicKey` varchar(255) not null,
+                          primary key (apiID)
 );
 
 create table `apiUser` (
-    `userID` int not null,
-    `apiID` int not null
+                           `userID` int not null,
+                           `apiID` int not null
 );
 
 create table `apiOrg` (
-    `orgID` int not null,
-    `apiID` int not null
+                          `orgID` int not null,
+                          `apiID` int not null
 );
 
 create table `apiPermissions` (
-    `apiID` int not null,
-    `userGet` bool default false,
-    `userInsert` bool default false,
-    `userUpdate` bool default false,
-    `userDelete` bool default false,
-    `orgGet` bool default false,
-    `orgInsert` bool default false,
-    `orgUpdate` bool default false,
-    `orgDelete` bool default false,
-    `initGet` bool default false,
-    `initInsert` bool default false,
-    `initUpdate` bool default false,
-    `initDelete` bool default false,
-    `notificationGet` bool default false,
-    `notificationInsert` bool default false,
-    `notificationUpdate` bool default false,
-    `notificationDelete` bool default false
+                                  `apiID` int not null,
+                                  `userGet` bool default false,
+                                  `userInsert` bool default false,
+                                  `userUpdate` bool default false,
+                                  `userDelete` bool default false,
+                                  `orgGet` bool default false,
+                                  `orgInsert` bool default false,
+                                  `orgUpdate` bool default false,
+                                  `orgDelete` bool default false,
+                                  `initGet` bool default false,
+                                  `initInsert` bool default false,
+                                  `initUpdate` bool default false,
+                                  `initDelete` bool default false,
+                                  `notificationGet` bool default false,
+                                  `notificationInsert` bool default false,
+                                  `notificationUpdate` bool default false,
+                                  `notificationDelete` bool default false
 );
+
+CREATE TABLE `blocks` (
+                          `messageID` int(11) NOT NULL auto_increment primary key,
+                          `blockReason` varchar(255) NOT NULL,
+                          `target` int(11) NOT NULL,
+                          `resolved` tinyint(1) NOT NULL DEFAULT 1,
+                          `resolution` varchar(255) NOT NULL,
+                          `blockDate` datetime NOT NULL
+);
+
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 insert into users(username, lastname, passwordHash, email, firstname, userID, activeUser) values ('anon','','','','Anonymous',1,0);
 insert into users(username, lastname, passwordHash, email, firstname, userID, activeUser, superuser) values ('betterflyeAdmin','a','$2y$10$Xi05Te40PfCl8.EkozYQoeQb8/OXnWNWSPlAm.hiVQ59CgvUz.mwO','a','a',2,0,1);
