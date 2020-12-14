@@ -16,7 +16,7 @@
   - If profanity is detected in the oraganization name then the user cannot create an organization.
   - If profanity is detected in the mission statement then the user cannot create an organization.
   - If profanity is detected in the description then the user cannot create an organization.
-- Users can create an initiative for an organization that they created without profanity
+- Users can create an initiative for an organization that they created without profanity in the name, description, additional information, or tags.
   - On the organizations page click the Create Initiative button.
   - Follow each step starting with the name.
   - If profanity is detected in the name then the user cannot create an initiative.
