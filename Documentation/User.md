@@ -33,5 +33,10 @@
   - If profanity is detected in the additional information then the user cannot create an initiative.
   - If profanity is detected in the tags then the user cannot create an initiative.
 
+![Initiative Name](https://user-images.githubusercontent.com/42616554/102119471-c6be0580-3e06-11eb-9f5b-78646ff289ff.png)
+![Initiative Description](https://user-images.githubusercontent.com/42616554/102119519-d89fa880-3e06-11eb-8b33-dc39d07106c2.png)
+![Initiative Details](https://user-images.githubusercontent.com/42616554/102119533-dfc6b680-3e06-11eb-8629-1615ef3a6ff5.png)
+![Initiative Tags](https://user-images.githubusercontent.com/42616554/102119556-e81ef180-3e06-11eb-87c2-3285cbfd4274.png)
+
 
 <a href="https://github.com/tms326/Betterflye/blob/content-filter-testing/Documentation/User.md">Link to main Betterflye user guide</a>
