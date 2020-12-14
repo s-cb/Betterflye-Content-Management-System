@@ -9,6 +9,15 @@
 - User can write a review for an organization without any profanity.
   - On an organization page, click the 'review' button and write a review.
   - If the review contains profanity, it will not be posted. 
-
+- Users can create an organization without profanity in the name, misson statement, or description.
+  - Click on the dashboard and then click on the organization button.
+  - On the organization page click Create Organization.
+  - Follow each step to create an organization starting with the name.
+  - If profanity is detected in the oraganization name then the user cannot create an organization.
+  - If profanity is detected in the mission statement then the user cannot create an organization.
+  - If profanity is detected in the description then the user cannot create an organization.
+- Users can create an initiative for an organization that they created without profanity
+  - On the organizations page click the Create Initiative button.
+  - Follow each step starting with the name.
 
 <a href="https://github.com/tms326/Betterflye/blob/content-filter-testing/Documentation/User.md">Link to main Betterflye user guide</a>
