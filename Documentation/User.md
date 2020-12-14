@@ -9,6 +9,8 @@
 - User can create a status for their profile without any profanity in it.
   - On the homepage or profile page, write a status in the status box.
 
+![Profile Status](https://user-images.githubusercontent.com/42616554/102121183-2d442300-3e09-11eb-890f-9d44303e75be.png)
+
 - User can write a review for an organization without any profanity.
   - On an organization page, click the 'review' button and write a review.
   - If the review contains profanity, it will not be posted. 
