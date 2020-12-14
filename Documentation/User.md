@@ -19,5 +19,9 @@
 - Users can create an initiative for an organization that they created without profanity
   - On the organizations page click the Create Initiative button.
   - Follow each step starting with the name.
+  - If profanity is detected in the name then the user cannot create an initiative.
+  - If profanity is detected in the description then the user cannot create an initiative.
+  - If profanity is detected in the additional information then the user cannot create an initiative.
+  - If profanity is detected in the tags then the user cannot create an initiative.
 
 <a href="https://github.com/tms326/Betterflye/blob/content-filter-testing/Documentation/User.md">Link to main Betterflye user guide</a>
