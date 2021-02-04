@@ -1,3 +1,4 @@
+# Regular User Features
 - User can post comments without any profanity in them.
   - User notified by a pop-up if their comment contains profanity.
   - Click on the comment button on a user post to create a comment.
@@ -42,3 +43,16 @@
 
 
 <a href="https://github.com/tms326/Betterflye/blob/content-filter-testing/Documentation/User.md">Link to main Betterflye user guide</a>
+
+# Admin Features
+
+- Admin can add words to the blacklist or the whitelist.
+  - On the dashboard, type a word into the corresponding text box and click 'add'.
+
+- Admin can resolve flags created by users.
+  - Next to each flag, use the drop-down box to choose an action to resolve the flag.
+  - Resolved flags appear in their own queue.
+
+- Admin can control user posts that were blocked by the content filter.
+  - Next to each blocked post, use the drop-down box to choose an action.
+  - Resolved blocks appear in their own queue.
