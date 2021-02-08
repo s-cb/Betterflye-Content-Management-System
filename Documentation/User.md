@@ -51,6 +51,7 @@
 - Admin can add words to the blacklist or the whitelist.
   - On the dashboard, type a word into the corresponding text box and click 'add'.
   ![adminadd](https://user-images.githubusercontent.com/54246161/107291438-2d8e2280-6a36-11eb-9b29-5ada6b9dd216.png)
+  
   ![adminwhitelist](https://user-images.githubusercontent.com/54246161/107291479-3e3e9880-6a36-11eb-90bd-50f5a90b716a.png)
 
 - Admin can resolve flags created by users.
