@@ -41,18 +41,26 @@
 ![Initiative Details](https://user-images.githubusercontent.com/42616554/102119533-dfc6b680-3e06-11eb-8629-1615ef3a6ff5.png)
 ![Initiative Tags](https://user-images.githubusercontent.com/42616554/102119556-e81ef180-3e06-11eb-87c2-3285cbfd4274.png)
 
-
+- Users can appeal posts that were blocked by the content filter.
+  - Click the three dots next to the post and select Appeal. Enter the reason, and select 'ok'.
+![appeal](https://user-images.githubusercontent.com/54246161/107291753-a68d7a00-6a36-11eb-9ce3-34214bce5676.png)
 <a href="https://github.com/tms326/Betterflye/blob/content-filter-testing/Documentation/User.md">Link to main Betterflye user guide</a>
 
 # Admin Features
 
 - Admin can add words to the blacklist or the whitelist.
   - On the dashboard, type a word into the corresponding text box and click 'add'.
+  ![adminadd](https://user-images.githubusercontent.com/54246161/107291438-2d8e2280-6a36-11eb-9b29-5ada6b9dd216.png)
+  ![adminwhitelist](https://user-images.githubusercontent.com/54246161/107291479-3e3e9880-6a36-11eb-90bd-50f5a90b716a.png)
 
 - Admin can resolve flags created by users.
   - Next to each flag, use the drop-down box to choose an action to resolve the flag.
+  ![flagged](https://user-images.githubusercontent.com/54246161/107291758-a68d7a00-6a36-11eb-9c6a-4db9a48d16ef.png)
   - Resolved flags appear in their own queue.
+  ![resolvedflag](https://user-images.githubusercontent.com/54246161/107291764-a9886a80-6a36-11eb-9b07-ddda28cb0630.png)
 
 - Admin can control user posts that were blocked by the content filter.
   - Next to each blocked post, use the drop-down box to choose an action.
+  ![blocked](https://user-images.githubusercontent.com/54246161/107291756-a68d7a00-6a36-11eb-82b7-b623014cec78.png)
   - Resolved blocks appear in their own queue.
+  ![resolvedblock](https://user-images.githubusercontent.com/54246161/107291763-a8efd400-6a36-11eb-9c2c-aad648e1859d.png)
