@@ -7,6 +7,9 @@
 *   Install XAMPP (v7.3.11 is tested)
     *   <a href="https://www.apachefriends.org/download.html" target="_blank">https://www.apachefriends.org/download.html</a>
     *   Run the apache and mysql by running **xampp-control.exe** (or corresponding executable if you are in MAC).
+*   Install Cypress
+    * <a href="https://www.cypress.io/">Cypress</a>
+    * This is for running the automated UI tests.
 
 ### Create DB Tables
 
