@@ -33,8 +33,11 @@
     *   **Shift+Right-click** to an empty place on that folder to open a command line.
     *   Run these commands (it assumes you have **git** installed and **git** command accessible in PATH environment variable):
         *   <pre>git clone https://github.com/tms326/Betterflye.git</pre>
+*   Browse to **C:/xampp/htdocs/Betterflye/php** folder. Create a folder called contentManagementSystem.
+*   Clone the content management library into that folder 
+    * <a href="https://github.com/jdibble21/Content-Management-System.git" target="_blank">https://github.com/jdibble21/Content-Management-System.git</a> 
 * Open the file /xampp/apache/conf/httpd.conf and change the DocumentRoot and Directory to match the Betterflye folder.
-* After cloning the project in PHPStorm, checkout the branch **content-filter-testing-WORKING**
+* After cloning the project in PHPStorm, checkout the branch **content-filter-library**
 ### Change DataLayer.php
 *  In the project, go to DataLayer.php in the folder php/classes.
 *  Copy the following: 
