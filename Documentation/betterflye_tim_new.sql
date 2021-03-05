@@ -132,23 +132,20 @@ CREATE TABLE `comments` (
 DROP TABLE IF EXISTS `community`;
 CREATE TABLE `community` (
                              `communityID` int(11) NOT NULL AUTO_INCREMENT,
-                             `communityName` varchar(255) NOT NULL,
-                             `communityDesc` text NOT NULL,
-                             `creationDate` datetime NOT NULL DEFAULT current_timestamp(),
-                             `communityManager` int(11) NOT NULL,
+                             `orgID` int not null,
                              PRIMARY KEY (`communityID`)
 );
 
-DROP TABLE IF EXISTS `communityInit`;
-CREATE TABLE `communityInit` (
-                                 `communityID` int(11) NOT NULL,
-                                 `initID` int(11) NOT NULL
+DROP TABLE IF EXISTS `communityInitAccess`;
+CREATE TABLE `communityInitAccess` (
+                                       `communityID` int(11) NOT NULL,
+                                       `initID` int(11) NOT NULL
 );
 
-DROP TABLE IF EXISTS `communityMember`;
-CREATE TABLE `communityMember` (
-                                   `communityID` int(11) NOT NULL,
-                                   `userID` int(11) NOT NULL
+DROP TABLE IF EXISTS `communitySupporter`;
+CREATE TABLE `communitySupporter` (
+                                      `communityID` int(11) NOT NULL,
+                                      `userID` int(11) NOT NULL
 );
 
 DROP TABLE IF EXISTS `communityOrg`;
@@ -914,7 +911,9 @@ CREATE TABLE `initRoles`(
 -- shifts are assigned here and can have the optional role assignment too
 CREATE TABLE `userVolShift`(
                                `userID` int not null,
-                               `shiftID` int not null
+                               `shiftID` int not null,
+                               `checkInTime` datetime default null,
+                               `checkOutTime` datetime default null
 );
 -- roles are assigned here if roles are used and shifts are not
 CREATE TABLE `userVolRole`(
@@ -1021,15 +1020,320 @@ create table `apiPermissions` (
                                   `notificationDelete` bool default false
 );
 
+-- new tables 11/24/2020
+
+create table `postCategories` (
+                                  `categoryID` int not null auto_increment,
+                                  `categoryName` varchar(255) not null,
+                                  `desc` text not null,
+                                  `user` bool not null,
+                                  `init` bool not null,
+                                  `org` bool not null,
+                                  primary key (categoryID)
+);
+
+create table `postCategory` (
+                                `categoryID` int not null ,
+                                `postID` int not null
+);
+
+CREATE TABLE `appreStorageForEmail` (
+                                        `appre` text not null,
+                                        `stateToken` varchar(255) not null unique
+);
+
+DROP TABLE IF EXISTS `userProfilePic`;
+CREATE TABLE `userProfilePic` (
+                                  `userID` int(11) NOT NULL,
+                                  `imagePath` varchar(255) NOT NULL,
+                                  UNIQUE KEY `userID` (`userID`),
+                                  CONSTRAINT `userPicKey` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`)
+);
+
+DROP TABLE IF EXISTS `orgProfilePic`;
+CREATE TABLE `orgProfilePic` (
+                                 `orgID` int(11) NOT NULL,
+                                 `imagePath` varchar(255) NOT NULL,
+                                 UNIQUE KEY `orgID` (`orgID`),
+                                 CONSTRAINT `orgPicKey` FOREIGN KEY (`orgID`) REFERENCES `organizations` (`orgID`)
+);
+
+DROP TABLE IF EXISTS `inKindPledges`;
+CREATE TABLE `inKindPledges`(
+                                pledgeID int not null auto_increment,
+                                initID int not null,
+                                userID int not null,
+                                itemName varchar(255) not null,
+                                itemAmount int not null,
+                                primary key (pledgeID)
+);
+
+DROP TABLE IF EXISTS `orgEIN`;
+create table `orgEIN` (
+                          orgID int not null,
+                          ein varchar(255)
+);
+
+DROP TABLE IF EXISTS `TRS_USER`;
+CREATE TABLE `TRS_USER` (
+                            userID int not null,
+                            TRS_userID int not null,
+                            TRS_clientID int not null,
+                            authToken varchar(255) not null
+);
+
+DROP TABLE IF EXISTS `TRS_CLIENT`;
+CREATE TABLE `TRS_CLIENT` (
+                              orgID int not null,
+                              TRS_clientID int not null,
+                              API_KEY varchar(255) not null
+);
+
+DROP TABLE IF EXISTS `TRS_SITE`;
+CREATE TABLE `TRS_SITE` (
+                            initID int not null,
+                            TRS_siteID int not null
+);
+
+DROP TABLE IF EXISTS `TRS_SHIFT`;
+CREATE TABLE `TRS_SHIFT`(
+                            TRS_shiftID int not null auto_increment,
+                            startTime datetime not null,
+                            endTime datetime not null,
+                            trs_roleID int,
+                            primary key (`trs_shiftID`)
+);
+
+DROP TABLE IF EXISTS `TRS_USER_SHIFT`;
+CREATE TABLE `TRS_USER_SHIFT`(
+                                 TRS_shiftID int not null,
+                                 userID int not null
+);
+
+DROP TABLE IF EXISTS `TRS_ROLE`;
+CREATE TABLE `TRS_ROLE`(
+                           TRS_roleID int not null auto_increment,
+                           name varchar(255) not null,
+                           primary key (`TRS_roleID`)
+);
+
+DROP TABLE IF EXISTS `TRS_USER_ROLE`;
+CREATE TABLE `TRS_USER_ROLE`(
+                                TRS_roleID int not null,
+                                userID int not null
+);
+
+DROP TABLE IF EXISTS `TRS_TIMESLOT`;
+CREATE TABLE `TRS_TIMESLOT` (
+                                TRS_shiftID int not null,
+                                TRS_timeslotID varchar(255) not null,
+                                TRS_siteID int
+);
+
+DROP TABLE IF EXISTS `TRS_ACTIVITY`;
+CREATE TABLE `TRS_ACTIVITY` (
+                                TRS_roleID int not null,
+                                TRS_timeslotID int not null,
+                                TRS_siteID int
+);
+DROP TABLE IF EXISTS `adminOrgVerify`;
+CREATE TABLE `adminOrgVerify` (
+    orgID int not null
+);
+
+DROP TABLE IF EXISTS `emailTemplates`;
+CREATE TABLE `emailTemplates` (
+                                  emailID int not null auto_increment primary key,
+                                  emailText text not null,
+                                  owner varchar(10) not null,
+                                  ownerID int not null
+);
+
+-- DROP TABLE IF EXISTS `TRS_LOG`;
+-- CREATE TABLE `TRS_LOG` (
+--    logID int not null primary key auto_increment,
+--    TRS_JSON text not null,
+--    date_received datetime default now()
+-- );
+
+-- new stuff 2/12/2021
+alter table organizations ADD FULLTEXT(orgName);
+alter table orgEIN ADD FULLTEXT(ein);
+alter table postCategories add unique(categoryName);
+
+
+insert into postCategories (categoryName, `desc`, user, init, org) value ('org: Latest News','The latest news from the organization.',0,0,1);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('org: Q&A','Questions and answers from the organization community.',0,0,1);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('org: Initiatives','Information on past and ongoing initiatives within the organization.',0,0,1);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('org: Initiative Creation','Notifications about new initiative opportunities',0,0,1);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('org: Impact Updates','Updates about the organization''s impact',0,0,1);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('org: General Conversation','General conversations about the org',0,0,1);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('org: Reviews','Reviews about the org',0,0,1);
+
+
+insert into postCategories (categoryName, `desc`, user, init, org) value ('init: Latest News','The latest news from the initiative.',0,1,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('init: Q&A','Questions and answers from the initiative community.',0,1,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('init: Participation','Information on participation',0,1,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('init: Impact Updates','Updates about the initiative''s impact',0,1,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('init: General Conversation','General conversations about the Init',0,1,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('init: Reviews','Reviews about the Init',0,1,0);
+
+insert into postCategories (categoryName, `desc`, user, init, org) value ('user: Created Init','user joined the initiative',1,0,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('user: Joined Init','user joined the initiative',1,0,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('user: Init Reviews','user reviewed the initiative',1,0,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('user: Earned Badge','user earned points in a badge',1,0,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('user: Level Up - Badge','user leveled up a badge',1,0,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('user: Level Up - Overall','user leveled up their overall score',1,0,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('user: Sent Appreciation','user sent appre',1,0,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('user: Received Appreciation','user received appre',1,0,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('user: General Conversation','general discourse between individuals',1,0,0);
+insert into postCategories (categoryName, `desc`, user, init, org) value ('user: Positive Thoughts','status updates from positive thoughts interface',1,0,0);
+
+create table initPost(
+                         initID int not null,
+                         postID int not null
+);
+
+create table postTarget(
+                           postID int not null,
+                           targetID int not null,
+                           targetType varchar(255) not null
+);
+
+
+-- org recognition system - started: 2/21/2021
+create table orgAwards(
+                          awardID int not null primary key auto_increment,
+                          orgID int not null,
+                          imagePath varchar(255) null,
+                          title varchar(255) not null,
+                          description text not null
+);
+
+create table orgCustomBadges(
+    -- all users joining the org will be awarded a 0 level badge which indicates that they may earn it, secret means they can't see it, which can make it a surprise or for certain people/groups or some shit like that
+                                badgeID int not null primary key auto_increment,
+                                orgID int not null,
+                                badgeName varchar(255) not null,
+                                badgeDescription text not null,
+                                progressible bool not null default true,
+                                secret bool not null default false
+
+);
+
+create table orgBadgeProgressionLevels(
+                                          badgeID int not null,
+                                          levels int not null default 1,
+    -- defaults to single earn, but can be modified to allow levels
+                                          progressionVariable int not null default 2
+    -- starts at 2 points, multiplies by progression variable each level
+);
+
+create table orgBadgeProgressionTypes(
+    -- this is a complicated table with advanced polymorphic relationships which assign types of activities that can progress the badge's points and levels
+    -- example: badgeID:1,activityType:initParticipation,activityTargetType:initID,activityTarget:23,progressionAmount:9
+    -- php will recognize initParticipation as the condition of being added to initUser table and progress/award the badge when the user participates in init with an id of 23
+                                         badgeID int not null,
+                                         activityType varchar(255) not null ,
+                                         activityTargetType varchar(255) not null ,
+                                         activityTarget int not null,
+                                         progressionAmount int not null
+
+);
+
+create table awarded(
+                        awardID int not null,
+                        userID int not null,
+                        awardDate date not null default NOW(),
+                        awardAppreciation text null
+);
+
+create table orgAppreciation(
+                                orgID int not null,
+                                userID int not null,
+                                appreText text not null,
+                                orgBadgeID int null,
+                                orgBadgePoints int null,
+                                impactCategory int null,
+                                impactCategoryPoints int null
+);
+
+create table orgSpotlight(
+                             orgID int not null unique,
+                             userID int not null,
+                             spotlightText text not null
+);
+
+CREATE TABLE `orgMilestones` (
+                                 `orgID` int not null,
+                                 `postContent` text,
+                                 `type` varchar(255),
+                                 `milestone`  int not null,
+                                 `orgMilestoneID` int not null auto_increment,
+                                 primary key (`orgMilestoneID`)
+);
+
+create table userAwardPreference(
+                                    userID int not null,
+                                    awardID int not null
+);
+
+create table userBadgePreference(
+                                    userID int not null,
+                                    badgeID int not null
+);
+
+create table userOrgSupport(
+                               userID int not null,
+                               orgID int not null
+);
+
+DROP TABLE IF EXISTS `whitelist`;
+CREATE TABLE `whitelist` (
+                             `wordID` int(11) NOT NULL auto_increment primary key,
+                             `word` varchar(255) NOT NULL,
+                             `dateAdded` datetime NOT NULL DEFAULT current_timestamp()
+);
+DROP TABLE IF EXISTS `blacklist`;
+CREATE TABLE `blacklist` (
+                             `wordID` int(11) NOT NULL auto_increment primary key,
+                             `word` varchar(255) NOT NULL,
+                             `dateAdded` datetime NOT NULL DEFAULT current_timestamp()
+);
+DROP TABLE IF EXISTS `blocks`;
 CREATE TABLE `blocks` (
                           `messageID` int(11) NOT NULL auto_increment primary key,
                           `blockReason` varchar(255) NOT NULL,
                           `target` int(11) NOT NULL,
                           `resolved` tinyint(1) NOT NULL DEFAULT 1,
                           `resolution` varchar(255) NOT NULL,
-                          `blockDate` datetime NOT NULL
+                          `blockDate` datetime NOT NULL,
+                          `appeal` int(11) NOT NULL DEFAULT 1,
+                          `appealMessage` text NOT NULL
 );
-
+DROP TABLE IF EXISTS `deletedposts`;
+CREATE TABLE `deletedposts` (
+                                `deleteID` int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+                                `userID` varchar(255) NOT NULL,
+                                `fullName` text NOT NULL,
+                                `postID` int(11) NOT NULL,
+                                `originalContent` text NOT NULL,
+                                `originalImage` varchar(255) NOT NULL
+);
+DROP TABLE IF EXISTS `bannedorgusers`;
+CREATE TABLE `bannedorgusers` (
+                            `orgID` int(11) NOT NULL,
+                            `userID` int(11) NOT NULL,
+                            UNIQUE KEY `uniqueness2` (`userID`,`orgID`),
+                            KEY `orgID` (`orgID`),
+                            KEY `userID` (`userID`)
+);
+DROP TABLE IF EXISTS `userorgposts`;
+CREATE TABLE `userorgposts` (
+                            `postID` INT NOT NULL ,
+                            `userID` INT NOT NULL ,
+                            `orgID` INT NOT NULL
+);
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 insert into users(username, lastname, passwordHash, email, firstname, userID, activeUser) values ('anon','','','','Anonymous',1,0);
 insert into users(username, lastname, passwordHash, email, firstname, userID, activeUser, superuser) values ('betterflyeAdmin','a','$2y$10$Xi05Te40PfCl8.EkozYQoeQb8/OXnWNWSPlAm.hiVQ59CgvUz.mwO','a','a',2,0,1);
