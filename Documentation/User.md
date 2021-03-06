@@ -65,3 +65,22 @@
   ![blocked](https://user-images.githubusercontent.com/54246161/107291756-a68d7a00-6a36-11eb-82b7-b623014cec78.png)
   - Resolved blocks appear in their own queue.
   ![resolvedblock](https://user-images.githubusercontent.com/54246161/107291763-a8efd400-6a36-11eb-9c2c-aad648e1859d.png)
+
+# Organization Admin Features
+
+- Organization admins can delete posts made on the organization page.
+  - Click the three dots on the top right side of the post.
+  - In the drop down there will be an option in red that says Delete Post.
+  ![DeleteOrgPost](https://user-images.githubusercontent.com/42616554/110187218-8fe40400-7de5-11eb-8759-45d2e91a9fe7.png)
+  - Click the delete post and you will be asked to confirm that you want to delete it.
+  ![DeleteOrgPostConfirm](https://user-images.githubusercontent.com/42616554/110187364-139df080-7de6-11eb-98f8-a4fb5868348a.png)
+  
+- Organization admins can ban users from their organization.
+  - Click the manage tab.
+  ![ManageButton](https://user-images.githubusercontent.com/42616554/110187515-9fb01800-7de6-11eb-8a29-a16ed20d5780.png)
+  - Under Users click the ban user button.
+  - The Organization admin will be asked to type the username of the user they want to ban.
+  ![BanFromOrg](https://user-images.githubusercontent.com/42616554/110187592-db4ae200-7de6-11eb-9bd5-8c6b366f678e.png)
+  - When the user trys to go back to the Organization page they cannot and are told they are banned.
+  ![BannedFromOrg](https://user-images.githubusercontent.com/42616554/110187640-06353600-7de7-11eb-9782-6a9e2d9bebcd.png)
+  
