@@ -22,7 +22,9 @@
 *   Copy the contents of this sql file.
     *   <a href="https://github.com/s-cb/Betterflye-Content-Management-System/blob/master/Documentation/betterflye_tim_new.sql" target="_blank">https://github.com/s-cb/Betterflye-Content-Management-System/blob/master/Documentation/betterflye_tim_new.sql</a>
 *   Paste it into the textbox in **SQL** tab and click **GO** button on bottom-right.
-
+*   Copy the contents of this sql file as well.
+    *    <a href="https://github.com/s-cb/Betterflye-Content-Management-System/blob/master/Documentation/cms.sql" target="_blank">https://github.com/s-cb/Betterflye-Content-Management-System/blob/master/Documentation/cms.sql</a>    
+*   Paste it into the textbox in **SQL** tab and click **GO** button on bottom-right.
 ### Clone Repositories
 
 *   Browse to **C:/xampp/htdocs** folder. (find the relevant folder under xampp installation in MAC)
