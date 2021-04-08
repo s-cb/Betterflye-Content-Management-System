@@ -32,3 +32,5 @@ Betterflye
 
 - <a href="https://github.com/tms326/Betterflye/tree/master">Betterflye Repository</a>
 
+## **Image Filtering**
+Library used - nsfwjs developed by Infinite Red, Inc. (https://github.com/infinitered/nsfwjs)
