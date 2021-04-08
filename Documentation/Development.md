@@ -10,6 +10,11 @@
 *   Install Cypress
     * <a href="https://www.cypress.io/">https://www.cypress.io/</a>
     * This is for running the automated UI tests.
+*   Install CORS chrome extension  
+<a href="https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en">https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en</a>
+    * This is for image filtering. When developing locally, accessing images from the betterflye s3 photo bucket may be blocked, resulting in the following error:
+    ![corsblock](https://user-images.githubusercontent.com/40703034/114089248-e7add900-9883-11eb-91b8-34e953bd78c0.png)
+    * A chrome extension can bypass this error
 
 ### Create DB Tables
 
