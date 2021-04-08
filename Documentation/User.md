@@ -84,3 +84,15 @@
   - When the user trys to go back to the Organization page they cannot and are told they are banned.
   ![BannedFromOrg](https://user-images.githubusercontent.com/42616554/110187640-06353600-7de7-11eb-9782-6a9e2d9bebcd.png)
   
+  # Image Filtering
+  
+  - Images are automatically filtered when the page loads.
+  - All NSFW (not safe for work) images are blurred.
+  ![blurredimage](https://user-images.githubusercontent.com/40703034/114084423-280a5880-987e-11eb-807f-69a7980d8e7e.png)
+  
+  - Image analyses are logged to the console.
+  ![consolelog](https://user-images.githubusercontent.com/40703034/114085402-5472a480-987f-11eb-8299-cdf2742ff3d4.png)
+  ![analyses](https://user-images.githubusercontent.com/40703034/114085517-7bc97180-987f-11eb-8b79-cd079e5daad3.png)
+  
+  - NSFW images can be unblurred by clicking the unblur button at the bottom of the page.
+  ![unblur button](https://user-images.githubusercontent.com/40703034/114086041-217ce080-9880-11eb-8a4f-8efb50bda067.png)
