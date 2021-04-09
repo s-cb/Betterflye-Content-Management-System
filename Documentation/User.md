@@ -83,6 +83,16 @@
   ![BanFromOrg](https://user-images.githubusercontent.com/42616554/110187592-db4ae200-7de6-11eb-9bd5-8c6b366f678e.png)
   - When the user trys to go back to the Organization page they cannot and are told they are banned.
   ![BannedFromOrg](https://user-images.githubusercontent.com/42616554/110187640-06353600-7de7-11eb-9782-6a9e2d9bebcd.png)
+
+- Posts made to the organization page must be approved by admins
+  - Make a post to the org page
+  ![pendingPost](https://user-images.githubusercontent.com/63201996/114226302-6b79cb00-9941-11eb-87b0-b04675bfb9f2.PNG)
+  - It will show up stating it is pending and only visible to you (one pending post per user allowed)
+  - As an org admin, you can view pending posts by going to "manage" on the org page. 
+  ![pendingPostAdminView](https://user-images.githubusercontent.com/63201996/114226690-e216c880-9941-11eb-8df3-d255c1d122df.PNG)
+  - You can approve or deny the post. By approving, all users and vistors to the org page can view and comment on the post. By denying, you will delete the post. 
+  - After approval, this is what the post will look like:
+  ![PostApproved](https://user-images.githubusercontent.com/63201996/114226796-1094a380-9942-11eb-968a-2459bacdec17.PNG)
   
   # Image Filtering
   
