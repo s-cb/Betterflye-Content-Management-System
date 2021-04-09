@@ -74,7 +74,13 @@
   ![DeleteOrgPost](https://user-images.githubusercontent.com/42616554/110187218-8fe40400-7de5-11eb-8759-45d2e91a9fe7.png)
   - Click the delete post and you will be asked to confirm that you want to delete it.
   ![DeleteOrgPostConfirm](https://user-images.githubusercontent.com/42616554/110187364-139df080-7de6-11eb-98f8-a4fb5868348a.png)
-  
+- Organization admins can manage flagged posts on the organization page.
+  - Users can flag a post on an org page using the drop down menu attached to posts.
+  ![flagorgPost](https://user-images.githubusercontent.com/63201996/114227509-16d74f80-9943-11eb-9a33-4e21c6aeaabf.PNG)
+  - Org admins can view current flags by going to "manage" then "manage content" in the org page.
+  - Admins can choose to delete post permanently, or ignore the flags. 
+  ![flagPostOrgAdmin](https://user-images.githubusercontent.com/63201996/114227881-9d8c2c80-9943-11eb-8d28-e8c3a89f6ed2.PNG)
+
 - Organization admins can ban users from their organization.
   - Click the manage tab.
   ![ManageButton](https://user-images.githubusercontent.com/42616554/110187515-9fb01800-7de6-11eb-8a29-a16ed20d5780.png)
@@ -93,7 +99,7 @@
   - You can approve or deny the post. By approving, all users and vistors to the org page can view and comment on the post. By denying, you will delete the post. 
   - After approval, this is what the post will look like:
   ![PostApproved](https://user-images.githubusercontent.com/63201996/114226796-1094a380-9942-11eb-968a-2459bacdec17.PNG)
-  
+ 
   # Image Filtering
   
   - Images are automatically filtered when the page loads.
