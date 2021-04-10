@@ -99,6 +99,11 @@
   - You can approve or deny the post. By approving, all users and vistors to the org page can view and comment on the post. By denying, you will delete the post. 
   - After approval, this is what the post will look like:
   ![PostApproved](https://user-images.githubusercontent.com/63201996/114226796-1094a380-9942-11eb-968a-2459bacdec17.PNG)
+  
+- Org admins can make custom blacklists for their organization
+   - As an org admin, customize the blacklist by going to "manage" then "manage content" in the org page.
+   - Type the word you want to add, then click the button.
+   ![orgblacklist](https://user-images.githubusercontent.com/54246161/114252162-e0fd8f80-9971-11eb-95af-cfe9eaa9fee0.png) 
  
   # Image Filtering
   
