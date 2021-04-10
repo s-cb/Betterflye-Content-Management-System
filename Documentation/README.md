@@ -2,5 +2,5 @@
 
 ## **Documentation**
 - [User Guide](User.md)
-- [Development](Documentation/Development.md)
-- [Deployment](Documentation/Deployment.md)
+- [Development](Development.md)
+- [Deployment](Deployment.md)
